@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Install dependencies
-                    sh 'pip install -r requirements.txt'
+                    sh 'pip install Flask'
                 }
             }
         }
