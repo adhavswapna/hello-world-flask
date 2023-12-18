@@ -17,9 +17,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    // Install dependencies                
-                    sh 'python -m venv venv'
-                    sh 'source venv/bin/activate'
+                    // Install dependencies            
                     sh 'pip install Flask nose'
                     
                 }
@@ -30,7 +28,6 @@ pipeline {
             steps {
                 script {
                     // Run unit test using nose                 
-                    sh 'source venv/bin/activate'  // Activate the virtual environment
                     sh 'nosetests tests'
                 }
             }
