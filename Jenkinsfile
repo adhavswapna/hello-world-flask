@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     // Run unit test using nose                 
-                    sh 'nosetests tests'
+                    sh 'python unit_tests.py'
                 }
             }
         }
