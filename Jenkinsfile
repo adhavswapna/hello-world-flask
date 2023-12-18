@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Install dependencies
-                    sh 'pip install Flask nose'
+                    sh ' hello-world-flask/unit_test.py/pip install Flask nose'
                 }
             }
         }
