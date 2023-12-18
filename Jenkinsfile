@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 scripts {
-                    Checkout git 'https://github.com/adhavswapna/hello-world-flask.git'
+                    git branch: 'main', url: 'https://github.com/adhavswapna/hello-world-flask.git'
                 
                 }
             
