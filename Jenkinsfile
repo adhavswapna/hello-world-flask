@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 scripts {
-                    git branch: 'main', url: 'https://github.com/adhavswapna/hello-world-flask.git'
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/adhavswapna/hello-world-flask.git']])
                 
                 }
             
