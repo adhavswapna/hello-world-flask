@@ -28,7 +28,6 @@ pipeline {
             steps {
                 script {
                     // Run unit test using nose
-                    sh 'pip install -r requirements.txt'
                     sh 'nosetests'
                 }
             }
