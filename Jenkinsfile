@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Run unit test using nose
-                    sh 'unit_test/nosetests'
+                    sh 'nosetests/hello-world-flask/unit_test'
                 }
             }
         }
