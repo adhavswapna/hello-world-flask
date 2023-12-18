@@ -18,7 +18,9 @@ pipeline {
             steps {
                 script {
                     // Install dependencies
-                    sh 'pip install nose'
+                    sh 'pip install --upgrade pip
+                    sh 'pip install Flask nose'
+                    
                 }
             }
         }
