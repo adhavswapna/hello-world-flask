@@ -17,8 +17,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    // Install dependencies
-                    sh 'pip install --upgrade pip
+                    // Install dependencies                
                     sh 'pip install Flask nose'
                     
                 }
@@ -29,6 +28,7 @@ pipeline {
             steps {
                 script {
                     // Run unit test using nose
+                    sh 'pip install -r requirements.txt'
                     sh 'nosetests'
                 }
             }
