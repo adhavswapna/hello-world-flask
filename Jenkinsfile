@@ -22,7 +22,7 @@ pipeline {
         steps {
             script {
                 //install dependencies
-                sh "n} install -r requirements.txt"
+                sh 'pip install -r requirements.txt'
             }
         }
     }
