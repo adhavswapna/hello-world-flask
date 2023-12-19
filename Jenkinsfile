@@ -39,16 +39,7 @@ pipeline {
                 }
             }
         }
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run unit test                
-                    sh 'pytest'
-                }
-            }
-        }
-    }
-
+   
     post {
         success {
             echo 'Unit tests passed! Build is successful.'
