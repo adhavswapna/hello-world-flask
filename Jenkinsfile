@@ -8,10 +8,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-<<<<<<< HEAD
+
                 script {
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/adhavswapna/hello-world-flask.git']])
-=======
+
                 scripts {
                     Checkout git 'https://github.com/adhavswapna/hello-world-flask.git'
                 
@@ -35,7 +35,7 @@ pipeline {
         steps {
             script{            
                 sh 'python -m unittest/unit_test.py'
->>>>>>> 6ac9a18 (jenkins modify)
+                
                 }
             }
         }
