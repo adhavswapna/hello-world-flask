@@ -1,22 +1,25 @@
 import unittest
 from flask import Flask
-from hello_world import app as flask_app
-from unittest.mock import MagicMock
-from nose.tools import assert_true
+from flask.testing import FlaskClient
+import requests
 
-class test_app(unittest.TestCase):
-    def setup(self):
-        self.app = flask_app.test_client()
+class TestFlaskApp(unittest.TestCase):
 
-    def atg_connection(self):
-        self.app.get = MagicMock(return_value=MagicMock(status_code=200))
+    def setUp(self):
+        self.app = Flask(__name__)
 
-        response = self.app.get('http://atg.world/')
-        status_code = response.status_code
+    def atg_website(self):
+        url = 'http://atg.world'
+        response = requests.get(url)
 
-        print("Connecting to atg_world website succeffully")
+        self.assertEqual(response.status_code, 200, f"Failed to connect to {url}. Status code: {response.status_code}")
+        print(f"Successfully connected to {url}")
 
-        assert_true(status_code ==200, "Failed to connect")
+    def hello_world_route(self):
+        client = self.app.test_client()
+        response = client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Hello, World!', response.data)
 
 if __name__ == '__main__':
     unittest.main()
