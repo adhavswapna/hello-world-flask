@@ -8,8 +8,34 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+<<<<<<< HEAD
                 script {
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/adhavswapna/hello-world-flask.git']])
+=======
+                scripts {
+                    Checkout git 'https://github.com/adhavswapna/hello-world-flask.git'
+                
+                }
+            
+            }
+        }
+    }
+}
+    
+    stage('Install dependenies'){
+        steps {
+            script {
+                //install dependencies
+                sh "pip${python_version} install -r requirements.txt
+            }
+        }
+    }
+    
+    stage('Run Tests') {
+        steps {
+            script{            
+                sh 'python -m unittest/unit_test.py'
+>>>>>>> 6ac9a18 (jenkins modify)
                 }
             }
         }
