@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     // Install Flask and pytest dependencies
-                    sh 'pip install Flask pytest'
+                    sh 'pip install Flask'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     // Run unit tests
-                    sh 'python -m unittest unit_test.py'
+                    sh 'python3 -m unittest unit_test.py'
                 }
             }
         }
