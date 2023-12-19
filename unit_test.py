@@ -11,6 +11,7 @@ class TestFlaskApp(unittest.TestCase):
     def atg_website(self):
         url = 'http://atg.world'
         response = requests.get(url)
+        
 
         self.assertEqual(response.status_code, 200, f"Failed to connect to {url}. Status code: {response.status_code}")
         print(f"Successfully connected to {url}")
