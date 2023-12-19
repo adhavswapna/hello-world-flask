@@ -26,7 +26,7 @@ pipeline {
         steps {
             script {
                 //install dependencies
-                sh "pip${python_version} install -r requirements.txt
+                sh 'pip install Flask pytest'
             }
         }
     }
@@ -39,21 +39,10 @@ pipeline {
                 }
             }
         }
-
-        stage('Install dependencies') {
-            steps {
-                script {
-                    // Install dependencies            
-                    sh 'pip install Flask pytest'
-                    
-                }
-            }
-        }
-
         stage('Run Tests') {
             steps {
                 script {
-                    // Run unit test using nose                 
+                    // Run unit test                
                     sh 'pytest'
                 }
             }
