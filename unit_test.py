@@ -9,7 +9,7 @@ def hello_world():
 
 @app.route('/atg')
 def atg_world():
-    response = request.get('http//atg.world')
+    response = request.get('https://atg.world')
 
 class TestFlaskApp(unittest.TestCase):
 
