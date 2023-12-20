@@ -1,5 +1,6 @@
 import unittest
 from flask import Flask
+import requests
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ def hello_world():
 @app.route('/atg')
 def atg_world():
     response = request.get('https://atg.world')
+    return response.text
 
 class TestFlaskApp(unittest.TestCase):
 
