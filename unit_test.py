@@ -1,26 +1,31 @@
 import unittest
 from flask import Flask
-from flask.testing import FlaskClient
-import requests
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+@app.route('/atg')
+def atg_world():
+    return 'Welcome to ATG World!'
 
 class TestFlaskApp(unittest.TestCase):
 
     def setUp(self):
-        self.app = Flask(__name__)
+        self.app = app.test_client()
 
-    def atg_website(self):
-        url = 'http://atg.world'
-        response = requests.get(url)
-        
+    def test_connect_to_atg_website(self):
+        response = self.app.get('/atg')
+        self.assertEqual(response.status_code, 200, f"Failed to connect. Status code: {response.status_code}")
+        print("Successfully connected to /atg.")
 
-        self.assertEqual(response.status_code, 200, f"Failed to connect to {url}. Status code: {response.status_code}")
-        print(f"Successfully connected to {url}")
-
-    def hello_world_route(self):
-        client = self.app.test_client()
-        response = client.get('/')
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Hello, World!', response.data)
+    def test_hello_world_route(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200, f"Failed to access the home route. Status code: {response.status_code}")
+        self.assertIn('Hello, World!', response.data.decode())
+        print("Successfully accessed the home route.")
 
 if __name__ == '__main__':
     unittest.main()
