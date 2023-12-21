@@ -10,8 +10,8 @@ def hello_world():
 
 @app.route('/atg')
 def atg_world():
-    response = requests.get('https://atg.world')  # Corrected the method name to 'requests.get'
-    return response.text  # Assuming you want to return the content of the response
+    response = requests.get('https://atg.world')  
+    return response.text  
 
 class TestFlaskApp(unittest.TestCase):
 
