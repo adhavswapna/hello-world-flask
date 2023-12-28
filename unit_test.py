@@ -1,6 +1,5 @@
 import unittest
 from flask import Flask
-from unittest.mock import patch
 import requests
 
 app = Flask(__name__)
